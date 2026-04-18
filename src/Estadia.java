@@ -2,21 +2,13 @@ import java.time.LocalTime;
 
 public class Estadia
 {
-    private Vehiculo vehiculo;
     private LocalTime horaIngreso;
     private LocalTime horaEgreso;
-    private int duracion;
-    private double tarifaFinal;
+    private int duracion;;
 
-    public Estadia(Vehiculo vehiculo, LocalTime horaIngreso, LocalTime horaEgreso)
+    public Estadia(LocalTime horaIngreso)
     {
-        this.vehiculo = vehiculo;
         this.horaIngreso = horaIngreso;
-        this.horaEgreso = horaEgreso;
-    }
-
-    public void setVehiculo(Vehiculo vehiculo) {
-        this.vehiculo = vehiculo;
     }
 
     public void setHoraIngreso(LocalTime horaIngreso) {
@@ -27,16 +19,9 @@ public class Estadia
         this.horaEgreso = horaEgreso;
     }
 
-    public void setDuracion(int duracion) {
+    public void setDuracion(int duracion)
+    {
         this.duracion = duracion;
-    }
-
-    public void setTarifaFinal(double tarifaFinal) {
-        this.tarifaFinal = tarifaFinal;
-    }
-
-    public Vehiculo getVehiculo() {
-        return vehiculo;
     }
 
     public LocalTime getHoraIngreso() {
@@ -49,10 +34,6 @@ public class Estadia
 
     public int getDuracion() {
         return duracion;
-    }
-
-    public double getTarifaFinal() {
-        return tarifaFinal;
     }
 
     public void calcularDuracion()
@@ -68,11 +49,6 @@ public class Estadia
         }
 
         this.setDuracion(hora);
-    }
-
-    public void calcularTarifaFinal()
-    {
-        this.setTarifaFinal(vehiculo.getTarifaPorHora() * duracion);
     }
 }
 

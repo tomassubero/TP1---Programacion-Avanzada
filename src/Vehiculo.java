@@ -5,6 +5,7 @@ public class Vehiculo
     private String marca;
     private int espacioQueOcupa;
     private double tarifaPorHora;
+    private Estadia estadia;
 
     public Vehiculo(String patente, String modelo, String marca)
     {
@@ -43,5 +44,15 @@ public class Vehiculo
     public int getEspacioQueOcupa()
     {
         return espacioQueOcupa;
+    }
+
+    public void setEstadia(Estadia estadia)
+    {
+        this.estadia = estadia;
+    }
+
+    public Estadia getEstadia()
+    {
+        return estadia;
     }
 }

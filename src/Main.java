@@ -28,12 +28,14 @@ public class Main
                 case 1:
                 {
                     //Ingreso de vehiculo
-                    Sistema.ingresarVehiculo();
+                    Sistema.ingresarVehiculo(scanner);
+                    System.out.println("\nVehículo ingresado correctamente. ");
                     break;
                 }
                 case 2:
                 {
                     //TODO: egreso de vehículo
+                    Sistema.egresarVehiculo(scanner);
                     break;
                 }
 
@@ -41,7 +43,7 @@ public class Main
                 {
                     //TODO: mostrar tarifario
                     System.out.printf(
-                            "Precio de hora para auto: %.2f\nPrecio de hora para moto: %.2f\nPrecio de hora para camión: %.2f\n",
+                            "\nPrecio de hora para auto: %.2f\nPrecio de hora para moto: %.2f\nPrecio de hora para camión: %.2f\n",
                             Tarifario.getValorHora(), Tarifario.getValorMoto(), Tarifario.getValorCamion());
                     break;
                 }
@@ -54,6 +56,5 @@ public class Main
             }
         }
     }
-
 }
 
