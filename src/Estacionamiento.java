@@ -10,7 +10,7 @@ public class Estacionamiento
 
     public static void ocuparEspacio(Vehiculo vehiculo)
     {
-        if((espacio_ocupado += vehiculo.getEspacioQueOcupa()) > espacio_total)
+        if((espacio_ocupado + vehiculo.getEspacioQueOcupa()) > espacio_total)
         {
             System.out.println("El estacionamiento está lleno, no es posible estacionar. ");
         }
@@ -61,5 +61,20 @@ public class Estacionamiento
     public static ArrayList<Vehiculo> getListaVehiculos()
     {
         return listaVehiculos;
+    }
+
+    public static int getEspacio_total()
+    {
+        return espacio_total;
+    }
+
+    public static int getEspacio_ocupado()
+    {
+        return espacio_ocupado;
+    }
+
+    public static int getEspacio_disponible()
+    {
+        return espacio_total - espacio_ocupado;
     }
 }

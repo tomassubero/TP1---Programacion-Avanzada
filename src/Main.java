@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main
@@ -19,9 +20,18 @@ public class Main
             do
             {
                 Sistema.mostrarMenu();
-                opcion = Integer.parseInt(scanner.nextLine());
+                try
+                {
+                    opcion = Integer.parseInt(scanner.nextLine());
+                }
+                catch(Exception e)
+                {
+                    System.out.printf("Ingrese un número dentro de los listados en el menú. (Error %s. )", e.getMessage());
+                    opcion = 0;
+                }
+
             }
-            while(opcion != 1 && opcion != 2 && opcion != 3 && opcion != 4);
+            while(opcion != 1 && opcion != 2 && opcion != 3 && opcion != 4 && opcion != 5 && opcion != 6);
 
             switch (opcion)
             {
@@ -34,20 +44,29 @@ public class Main
                 }
                 case 2:
                 {
-                    //TODO: egreso de vehículo
                     Sistema.egresarVehiculo(scanner);
                     break;
                 }
-
                 case 3:
                 {
-                    //TODO: mostrar tarifario
                     System.out.printf(
                             "\nPrecio de hora para auto: %.2f\nPrecio de hora para moto: %.2f\nPrecio de hora para camión: %.2f\n",
                             Tarifario.getValorHora(), Tarifario.getValorMoto(), Tarifario.getValorCamion());
                     break;
                 }
+
                 case 4:
+                {
+                    Sistema.consultarEspacios();
+                    break;
+                }
+
+                case 5:
+                {
+                    Sistema.mostrarVehiculos();
+                    break;
+                }
+                case 6:
                 {
                     sesion = false;
                     System.out.println("\nAdios!");

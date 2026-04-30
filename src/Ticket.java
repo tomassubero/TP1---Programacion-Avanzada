@@ -21,7 +21,7 @@ public class Ticket
 
     public void imprimirTicket()
     {
-        System.out.printf("\n---%s %s---\nPatente: %s\nHora de ingreso: %s\nHora de egreso: %s\nTarifa: %f\n",
+        System.out.printf("\n---%s %s---\nPatente: %s\nHora de ingreso: %.8s\nHora de egreso: %.8s\nTarifa: %.2f\n",
                     vehiculo.getMarca(), vehiculo.getModelo(), vehiculo.getPatente(), vehiculo.getEstadia().getHoraIngreso(), vehiculo.getEstadia().getHoraEgreso(), this.getTarifaFinal());
     }
 }

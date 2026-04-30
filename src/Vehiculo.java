@@ -7,11 +7,11 @@ public class Vehiculo
     private double tarifaPorHora;
     private Estadia estadia;
 
-    public Vehiculo(String patente, String modelo, String marca)
+    public Vehiculo(String patente, String marca, String modelo)
     {
         this.patente = patente;
-        this.modelo = modelo;
         this.marca = marca;
+        this.modelo = modelo;
     }
 
     public void setTarifaPorHora(double tarifa)
@@ -55,4 +55,10 @@ public class Vehiculo
     {
         return estadia;
     }
+
+    public void mostrarDatos()
+    {
+        System.out.printf("\nMarca: %s | Modelo: %s | Patente: %s", this.marca, this.modelo, this.patente);
+    }
+
 }

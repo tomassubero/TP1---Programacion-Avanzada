@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Sistema
@@ -59,23 +60,59 @@ public class Sistema
 
     public static void egresarVehiculo(Scanner scanner)
     {
-        System.out.println("\nIngrese la patente del auto a retirar: \n");
-        patente = scanner.nextLine();
-        int indicePatente = Estacionamiento.buscarPatente(patente);
-
-        if( indicePatente >= 0)
+        if(Estacionamiento.getListaVehiculos().isEmpty())
         {
-            Estacionamiento.liberarEspacio(Estacionamiento.getListaVehiculos().get(indicePatente));
+            System.out.println("\nEl estacionamiento está vacío. Estacioná donde quieras pa.\n");
         }
         else
         {
-            System.out.printf("El vehículo de patente %s no se encuentra en el estacionamiento. ", patente);
+            try
+            {
+                System.out.println("\nIngrese la patente del auto a retirar: \n");
+                patente = scanner.nextLine();
+                int indicePatente = Estacionamiento.buscarPatente(patente);
+
+                if( indicePatente >= 0)
+                {
+                    Estacionamiento.liberarEspacio(Estacionamiento.getListaVehiculos().get(indicePatente));
+                }
+                else
+                {
+                    System.out.printf("El vehículo de patente %s no se encuentra en el estacionamiento. ", patente);
+                }
+            }
+            catch (Exception e)
+            {
+                System.out.println(e.getMessage());
+            }
+
         }
     }
 
     public static void mostrarMenu()
     {
         System.out.println("\n---SISTEMA DE ESTACIONAMIENTO---");
-        System.out.println("\n1. Ingresar vehiculo.\n2. egresar vehiculo.\n3. Consultar tarifas.\n4. Salir.\n");
+        System.out.println("\n1. Ingresar vehiculo." + "\n2. egresar vehiculo.\n3. Consultar tarifas.\n" +
+                           "4. Consultar espacio disponible\n5. Ver vehículos\n6. Salir.\n");
+    }
+
+    public static void consultarEspacios()
+    {
+        System.out.println("\n---STATUS DEL ESTACIONAMIENTO---");
+        System.out.printf("- Capacidad máxima: %d\n- Espacio disponible: %d\n- Espacio ocupado: %d\n", Estacionamiento.getEspacio_total(), Estacionamiento.getEspacio_disponible(), Estacionamiento.getEspacio_ocupado());
+    }
+
+    public static void mostrarVehiculos()
+    {
+        ArrayList<Vehiculo> listaVehiculos = Estacionamiento.getListaVehiculos();
+        int cantidad = listaVehiculos.size();
+
+        System.out.println("---LISTA DE VEHICULOS INGRESADOS---");
+        for(int i = 0; i < cantidad; i++)
+        {
+            System.out.printf("---VEHICULO N°: %d---\n", i+1);
+            listaVehiculos.get(i).mostrarDatos();
+            System.out.printf(" | Plaza n°: %d\n", i+1);
+        }
     }
 }
