@@ -28,9 +28,26 @@ public class Sistema
 
                 System.out.println("\nIngrese el modelo: ");
                 modelo = scanner.nextLine();
+                do
+                {
+                    try
+                    {
+                        System.out.println("\nIngrese el tipo de vehículo: \n1: Auto\n2: Moto\n3: Camión\n");
+                        tipo = Integer.parseInt(scanner.nextLine());
+                        ValidarTipoVehiculo(tipo);
+                    }
+                    catch (NumberFormatException e)
+                    {
+                        System.err.println("Error: Debes ingresar un número válido (1, 2 o 3).");
+                        tipo = 0;
+                    }
+                    catch (TipoInvalidoException e)
+                    {
+                        System.err.printf("Error: %s", e.getMessage());
+                    }
+                }
+                while(tipo != 1 && tipo !=2 && tipo != 3);
 
-                System.out.println("\nIngrese el tipo de vehículo: \n1: Auto\n2: Moto\n3: Camión\n");
-                tipo = Integer.parseInt(scanner.nextLine());
 
                 switch (tipo)
                 {
@@ -99,6 +116,7 @@ public class Sistema
     public static void consultarEspacios()
     {
         System.out.println("\n---STATUS DEL ESTACIONAMIENTO---");
+
         System.out.printf("- Capacidad máxima: %d\n- Espacio disponible: %d\n- Espacio ocupado: %d\n", Estacionamiento.getEspacio_total(), Estacionamiento.getEspacio_disponible(), Estacionamiento.getEspacio_ocupado());
     }
 
@@ -115,4 +133,13 @@ public class Sistema
             System.out.printf(" | Plaza n°: %d\n", i+1);
         }
     }
+
+    public static void ValidarTipoVehiculo(int tipo) throws TipoInvalidoException
+    {
+        if (tipo != 1 && tipo != 2 && tipo != 3)
+        {
+            throw new TipoInvalidoException("Debes elegir una de las opciones en pantalla (1, 2 o 3).");
+        }
+    }
 }
+

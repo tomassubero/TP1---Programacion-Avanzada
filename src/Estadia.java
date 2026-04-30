@@ -43,11 +43,10 @@ public class Estadia
         // caso contrario, no se tienen en cuenta.
         int hora = horaEgreso.minusHours(horaIngreso.getHour()).getHour();
         int minuto = horaEgreso.getMinute() - horaIngreso.getMinute();
-        if(minuto > 30)
+        if(minuto > 30 || (hora == 0 && minuto < 30))
         {
             hora += 1;
         }
-
         this.setDuracion(hora);
     }
 }
