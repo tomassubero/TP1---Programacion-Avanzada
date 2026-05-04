@@ -34,7 +34,7 @@ public class Sistema
                     {
                         System.out.println("\nIngrese el tipo de vehículo: \n1: Auto\n2: Moto\n3: Camión\n");
                         tipo = Integer.parseInt(scanner.nextLine());
-                        ValidarTipoVehiculo(tipo);
+                        validarTipoVehiculo(tipo);
                     }
                     catch (NumberFormatException e)
                     {
@@ -102,7 +102,6 @@ public class Sistema
             {
                 System.out.println(e.getMessage());
             }
-
         }
     }
 
@@ -115,9 +114,17 @@ public class Sistema
 
     public static void consultarEspacios()
     {
-        System.out.println("\n---STATUS DEL ESTACIONAMIENTO---");
+        int cantidad_auto, cantidad_moto, cantidad_camion;
+        ArrayList<Integer> lista_total_por_tipo = Estacionamiento.cantidadPorTipoVehiculo();
+        cantidad_auto = lista_total_por_tipo.get(0);
+        cantidad_moto = lista_total_por_tipo.get(1);
+        cantidad_camion = lista_total_por_tipo.get(2);
 
-        System.out.printf("- Capacidad máxima: %d\n- Espacio disponible: %d\n- Espacio ocupado: %d\n", Estacionamiento.getEspacio_total(), Estacionamiento.getEspacio_disponible(), Estacionamiento.getEspacio_ocupado());
+        System.out.println("\n---STATUS DEL ESTACIONAMIENTO---\n");
+
+        System.out.printf("- Capacidad máxima: %d\n- Espacio disponible: %d\n- Espacio ocupado: %d\n- Cantidad de vehiculos: %d\n\t* Autos: %d\n\t* Motos: %d \n\t* Camiones: %d\n"
+                ,Estacionamiento.getEspacio_total(), Estacionamiento.getEspacio_disponible(), Estacionamiento.getEspacio_ocupado(), Estacionamiento.getListaVehiculos().size(),
+                 cantidad_auto, cantidad_moto, cantidad_camion);
     }
 
     public static void mostrarVehiculos()
@@ -125,16 +132,23 @@ public class Sistema
         ArrayList<Vehiculo> listaVehiculos = Estacionamiento.getListaVehiculos();
         int cantidad = listaVehiculos.size();
 
-        System.out.println("---LISTA DE VEHICULOS INGRESADOS---");
-        for(int i = 0; i < cantidad; i++)
+        if(cantidad > 0)
         {
-            System.out.printf("---VEHICULO N°: %d---\n", i+1);
-            listaVehiculos.get(i).mostrarDatos();
-            System.out.printf(" | Plaza n°: %d\n", i+1);
+            System.out.println("\n---LISTA DE VEHICULOS INGRESADOS---\n");
+            for(int i = 0; i < cantidad; i++)
+            {
+                System.out.printf("---VEHICULO N°: %d---", i+1);
+                listaVehiculos.get(i).mostrarDatos();
+                System.out.printf(" | Plaza n°: %d\n\n", i+1);
+            }
+        }
+        else
+        {
+            System.out.println("\nNo hay vehículos ingresados en el estacionamiento. \n");
         }
     }
 
-    public static void ValidarTipoVehiculo(int tipo) throws TipoInvalidoException
+    public static void validarTipoVehiculo(int tipo) throws TipoInvalidoException
     {
         if (tipo != 1 && tipo != 2 && tipo != 3)
         {

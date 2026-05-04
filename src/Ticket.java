@@ -1,4 +1,4 @@
-public class Ticket
+public class Ticket implements Mostrable
 {
     private Vehiculo vehiculo;
     private double tarifaFinal;
@@ -19,7 +19,7 @@ public class Ticket
         return tarifaFinal;
     }
 
-    public void imprimirTicket()
+    public void mostrarDatos()
     {
         System.out.printf("\n---%s %s---\nPatente: %s\nHora de ingreso: %.8s\nHora de egreso: %.8s\nTarifa: %.2f\n",
                     vehiculo.getMarca(), vehiculo.getModelo(), vehiculo.getPatente(), vehiculo.getEstadia().getHoraIngreso(), vehiculo.getEstadia().getHoraEgreso(), this.getTarifaFinal());

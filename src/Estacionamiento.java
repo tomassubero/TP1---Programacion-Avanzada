@@ -32,7 +32,7 @@ public class Estacionamiento
         listaTickets.add(ticket);
 
         System.out.println("\nVehículo retirado del estacionamiento. Imprimiendo ticket...\n");
-        ticket.imprimirTicket();
+        ticket.mostrarDatos();
         listaVehiculos.remove(vehiculo);
 
     }
@@ -77,4 +77,34 @@ public class Estacionamiento
     {
         return espacio_total - espacio_ocupado;
     }
+
+    public static ArrayList<Integer> cantidadPorTipoVehiculo()
+    {
+        int cantidad_auto = 0, cantidad_moto = 0, cantidad_camion = 0;
+        int total_vehiculos = listaVehiculos.size();
+
+        ArrayList<Integer> lista_cantidad_por_tipo = new ArrayList<>();
+
+        for(int i = 0; i < total_vehiculos; i++)
+        {
+            if(listaVehiculos.get(i).getClass().getName().equals("Auto"))
+            {
+                cantidad_auto += 1;
+            }
+            else if (listaVehiculos.get(i).getClass().getName().equals("Moto"))
+            {
+                cantidad_moto += 1;
+            }
+            else
+            {
+                cantidad_camion += 1;
+            }
+        }
+        lista_cantidad_por_tipo.add(cantidad_auto);
+        lista_cantidad_por_tipo.add(cantidad_moto);
+        lista_cantidad_por_tipo.add(cantidad_camion);
+
+        return lista_cantidad_por_tipo;
+    }
+
 }

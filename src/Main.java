@@ -14,7 +14,6 @@ public class Main
 
         Scanner scanner = new Scanner(System.in);
 
-        //Bucle principal del Menú de estacionamiento: egresar vehículo, ingresar vehículo, consultar tarifas
         while(sesion)
         {
             do
