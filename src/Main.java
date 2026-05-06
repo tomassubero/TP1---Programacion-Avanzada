@@ -33,7 +33,6 @@ public class Main
             {
                 case 1:
                 {
-                    //Ingreso de vehiculo
                     Sistema.ingresarVehiculo(scanner);
                     System.out.println("\nVehículo ingresado correctamente. ");
                     break;

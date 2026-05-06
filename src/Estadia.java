@@ -38,9 +38,6 @@ public class Estadia
 
     public void calcularDuracion()
     {
-        // Lo mínimo que cobra es 1 hora, por más que hayas estado 1 minuto en el estacionamiento
-        // Si pasó más de una hora, se evalúan los minutos. Si son más de 30, se cobra como 1 hora
-        // caso contrario, no se tienen en cuenta.
         int hora = horaEgreso.minusHours(horaIngreso.getHour()).getHour();
         int minuto = horaEgreso.getMinute() - horaIngreso.getMinute();
         if(minuto > 30 || (hora == 0 && minuto < 30))

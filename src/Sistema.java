@@ -109,7 +109,7 @@ public class Sistema
     {
         System.out.println("\n---SISTEMA DE ESTACIONAMIENTO---");
         System.out.println("\n1. Ingresar vehiculo." + "\n2. egresar vehiculo.\n3. Consultar tarifas.\n" +
-                           "4. Consultar espacio disponible\n5. Ver vehículos\n6. Salir.\n");
+                           "4. Consultar estado del estacionamiento.\n5. Ver vehículos.\n6. Salir.\n");
     }
 
     public static void consultarEstado()
@@ -122,9 +122,9 @@ public class Sistema
 
         System.out.println("\n---STATUS DEL ESTACIONAMIENTO---\n");
 
-        System.out.printf("- Capacidad máxima: %d\n- Espacio disponible: %d\n- Espacio ocupado: %d\n- Cantidad de vehiculos: %d\n\t* Autos: %d\n\t* Motos: %d \n\t* Camiones: %d\n"
+        System.out.printf("- Capacidad máxima: %d\n- Espacio disponible: %d\n- Espacio ocupado: %d\n- Cantidad de vehiculos: %d\n\t* Autos: %d\n\t* Motos: %d \n\t* Camiones: %d\n- Recaudación total: %.02f"
                 ,Estacionamiento.getEspacio_total(), Estacionamiento.getEspacio_disponible(), Estacionamiento.getEspacio_ocupado(), Estacionamiento.getListaVehiculos().size(),
-                 cantidad_auto, cantidad_moto, cantidad_camion);
+                 cantidad_auto, cantidad_moto, cantidad_camion, Estacionamiento.getRecaudacion_total());
     }
 
     public static void mostrarVehiculos()

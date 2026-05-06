@@ -5,6 +5,7 @@ public class Estacionamiento
 {
     private static final int espacio_total = 100;
     private static int espacio_ocupado;
+    private static double recaudacion_total = 0;
     private static ArrayList<Vehiculo> listaVehiculos = new ArrayList<>();
     private static ArrayList<Ticket> listaTickets = new ArrayList<>();
 
@@ -30,6 +31,7 @@ public class Estacionamiento
 
         Ticket ticket = new Ticket(vehiculo);
         listaTickets.add(ticket);
+        recaudacion_total += ticket.getTarifaFinal();
 
         System.out.println("\nVehículo retirado del estacionamiento. Imprimiendo ticket...\n");
         ticket.mostrarDatos();
@@ -75,6 +77,11 @@ public class Estacionamiento
     public static int getEspacio_disponible()
     {
         return espacio_total - espacio_ocupado;
+    }
+
+    public static double getRecaudacion_total()
+    {
+        return recaudacion_total;
     }
 
     public static ArrayList<Integer> cantidadPorTipoVehiculo()
