@@ -34,7 +34,6 @@ public class Estacionamiento
         System.out.println("\nVehículo retirado del estacionamiento. Imprimiendo ticket...\n");
         ticket.mostrarDatos();
         listaVehiculos.remove(vehiculo);
-
     }
 
     public static void crearEstadia(Vehiculo vehiculo)

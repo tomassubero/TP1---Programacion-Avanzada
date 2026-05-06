@@ -112,7 +112,7 @@ public class Sistema
                            "4. Consultar espacio disponible\n5. Ver vehículos\n6. Salir.\n");
     }
 
-    public static void consultarEspacios()
+    public static void consultarEstado()
     {
         int cantidad_auto, cantidad_moto, cantidad_camion;
         ArrayList<Integer> lista_total_por_tipo = Estacionamiento.cantidadPorTipoVehiculo();
@@ -154,6 +154,13 @@ public class Sistema
         {
             throw new TipoInvalidoException("Debes elegir una de las opciones en pantalla (1, 2 o 3).");
         }
+    }
+
+    public static void setTarifas()
+    {
+        Tarifario.setValorCamion(1500);
+        Tarifario.setValorMoto(700);
+        Tarifario.setValorHora(1000);
     }
 }
 

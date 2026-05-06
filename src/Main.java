@@ -5,10 +5,7 @@ public class Main
 {
     public static void main(String[] args)
     {
-        Tarifario.setValorCamion(1500);
-        Tarifario.setValorMoto(700);
-        Tarifario.setValorHora(1000);
-
+        Sistema.setTarifas();
         int opcion;
         boolean sesion = true;
 
@@ -56,7 +53,7 @@ public class Main
 
                 case 4:
                 {
-                    Sistema.consultarEspacios();
+                    Sistema.consultarEstado();
                     break;
                 }
 

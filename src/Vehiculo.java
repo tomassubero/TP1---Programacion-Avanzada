@@ -1,4 +1,4 @@
-public class Vehiculo implements Mostrable
+public abstract class Vehiculo implements Mostrable
 {
     private String patente;
     private String modelo;

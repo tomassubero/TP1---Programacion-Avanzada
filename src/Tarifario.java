@@ -1,8 +1,6 @@
 public class Tarifario
 {
-    //Estoy haciendo básicamente una clase estática, no quiero instanciar un tarifario
-    // y quiero que todos los vehículos puedan acceder a consultar las tarifas.
-    private static double valorHora;
+    private static double valorAuto;
     private static double valorCamion;
     private static double valorMoto;
 
@@ -11,7 +9,7 @@ public class Tarifario
     }
 
     public static double getValorHora() {
-        return valorHora;
+        return valorAuto;
     }
 
     public static double getValorCamion() {
@@ -23,7 +21,7 @@ public class Tarifario
     }
 
     public static void setValorHora(double valorHora) {
-        Tarifario.valorHora = valorHora;
+        Tarifario.valorAuto = valorHora;
     }
 
     public static void setValorCamion(double valorCamion) {
